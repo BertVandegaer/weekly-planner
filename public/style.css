@@ -1,0 +1,118 @@
+:root {
+  --primary-color: #4285f4;
+  --task-colors: #e3f2fd, #e8f5e9, #fff3e0, #f3e5f5, #e0f7fa;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.planner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.controls button {
+  padding: 8px 16px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+#add-task {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+#clear-all {
+  background-color: #f44336;
+  color: white;
+}
+
+.week-container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.day {
+  flex: 1;
+  min-width: 250px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 15px;
+}
+
+.day h2 {
+  margin-top: 0;
+  color: var(--primary-color);
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.time-slots {
+  position: relative;
+  min-height: 720px;
+}
+
+.time-marker {
+  height: 60px;
+  position: relative;
+  border-bottom: 1px dashed #eee;
+}
+
+.time-marker::after {
+  content: attr(data-time);
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 12px;
+  color: #888;
+}
+
+.task {
+  position: absolute;
+  width: calc(100% - 10px);
+  padding: 8px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: move;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  z-index: 10;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task:hover {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.task-actions {
+  float: right;
+}
+
+.task-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+@media (max-width: 768px) {
+  .week-container {
+    flex-direction: column;
+  }
+  .day {
+    min-width: auto;
+  }
+}
